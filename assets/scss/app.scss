@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'KodeMono';
+    src: url("/nuxt3-blog/public/fonts/KodeMono-VariableFont_wght.ttf") format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: KodeMono, Arial, sans-serif;
+
+    a {
+        font-size: 15px;
+    }
+}
