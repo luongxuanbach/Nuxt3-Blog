@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div class="container mx-auto my-4 px-4">
         <AppHeader />
-        <div class="content">
+        <div class="content my-5">
             <slot />
         </div>
         <AppFooter />
