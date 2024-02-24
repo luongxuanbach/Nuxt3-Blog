@@ -6,6 +6,10 @@ const route = useRoute();
 const apiBase = config.public.apiBase;
 
 const { data: post, pending, error, refresh } = await useAsyncData(`posts_p${route.params.id}`, () => $fetch(`${apiBase}/posts/${route.params.id}`));
+
+const refreshData = async () => {
+    await refresh();
+}
 </script>
 
 <template>
@@ -19,6 +23,8 @@ const { data: post, pending, error, refresh } = await useAsyncData(`posts_p${rou
         <span class="block text-sm mt-2 mb-2">Created by: {{ post.author }}</span>
         <time class="block text-sm text-blue-500"><span class="fas fa-clock"></span>{{ post.created_at }}</time>
     </article>
+
+    <a href="#" @click.prevent="refreshData">Refresh Post</a>
 </template>
 
 <style scoped></style>
