@@ -8,6 +8,23 @@ const { data: posts, pending, error } = await useFetch(`${apiBase}/posts`, {
     lazy: false
 });
 
+useHead({
+    title: 'Homepage',
+    meta: [
+        {
+            name: 'description',
+            content: 'My Blog portal homepage'
+        },
+        {
+          name: 'og:description',
+          content: 'My blog portal contains generic article on green energy'
+        },
+        {
+          name: 'og:title',
+          content: 'Homepage'
+        },
+    ]
+})
 </script>
 
 <template>

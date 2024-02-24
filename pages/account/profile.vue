@@ -7,6 +7,10 @@
 <script setup lang="ts">
     definePageMeta({
         layout: 'account'
+    });
+
+    useHead({
+        title: 'User profile',
     })
 </script>
 

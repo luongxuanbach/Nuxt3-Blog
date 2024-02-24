@@ -15,6 +15,7 @@
             </ul>
         </nav>
         <div class="flex-none user-link">
+            <nuxt-link to="/account/create-post" class="mx-3 btn-primary-outline">Post Article</nuxt-link>
             <nuxt-link to="/account/profile" class="text-green-800"><span class="fas fa-user"></span>Profile</nuxt-link>
         </div>
     </header>
