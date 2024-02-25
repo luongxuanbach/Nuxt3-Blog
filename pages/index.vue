@@ -4,8 +4,10 @@ const config = useRuntimeConfig();
 const apiBase = config.public.apiBase;
 
 const { data: posts, pending, error } = await useFetch(`${apiBase}/posts`, {
-    key: 'latestposts',
-    lazy: false
+    query: {
+        _sort: 'id',
+        _limit: 10
+    }
 });
 
 useHead({
@@ -16,12 +18,12 @@ useHead({
             content: 'My Blog portal homepage'
         },
         {
-          name: 'og:description',
-          content: 'My blog portal contains generic article on green energy'
+            name: 'og:description',
+            content: 'My blog portal contains generic article on green energy'
         },
         {
-          name: 'og:title',
-          content: 'Homepage'
+            name: 'og:title',
+            content: 'Homepage'
         },
     ]
 })

@@ -61,7 +61,7 @@ export default defineNuxtConfig({
         },
       ],
     },
-    pageTransition: { name: 'page', mode: 'out-in' },
+    pageTransition: { name: "page", mode: "out-in" },
   },
   modules: ["@nuxtjs/tailwindcss"],
   runtimeConfig: {
@@ -70,5 +70,4 @@ export default defineNuxtConfig({
       apiBase: "",
     },
   },
-  
 });
