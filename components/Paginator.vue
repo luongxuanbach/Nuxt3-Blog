@@ -1,18 +1,38 @@
 <template>
-    <div class="paginator">
+    <div class="paginator" v-if="totalResults > 0 && numPages > 1">
         <ul>
-            <li class="bg-green-600 inline  mx-1 p-2 cursor-pointer text-sm">1</li>
-            <li class="bg-green-600 inline mx-1 p-2 cursor-pointer text-sm disabled">2</li>
-            <li class="bg-green-600 inline mx-1 p-2 cursor-pointer text-sm">3</li>
-            <li class="bg-green-600 inline mx-1 p-2 cursor-pointer text-sm">4</li>
+            <li class="bg-green-600 inline  mx-1 p-2 cursor-pointer text-sm" :class="{ disabled: num == currentPage }"
+                v-for="num in numPages" :key="num" @click="$emit('onPaginate', num)">{{ num }}</li>
         </ul>
     </div>
 </template>
 
 <script setup lang="ts">
 
+const props = defineProps({
+    totalResults: {
+        type: Number,
+        required: true
+    },
+    limit: {
+        type: Number,
+        required: true
+    },
+    currentPage: {
+        type: Number,
+        required: true
+    },
+});
+
+defineEmits(['onPaginate']);
+
+const numPages = ref(props.totalResults > props.limit ? Math.round(props.totalResults / mergeProps.limit) : 1);
+
+watch(() => props.totalResults, (newValue, oldValue) => {
+    if (newValue != oldValue) {
+        numPages.value = props.totalResults > props.limit ? Math.round(props.totalResults / mergeProps.limit) : 1;
+    }
+})
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
