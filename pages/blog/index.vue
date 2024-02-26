@@ -31,6 +31,7 @@ await store.fetchPosts();
             <div>
                 <Post v-for="post in posts" :key="post.id" :post="post" />
             </div>
+            <Paginator/>
         </section>
     </div>
 </template>
